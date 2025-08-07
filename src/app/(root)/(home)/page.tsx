@@ -1,13 +1,24 @@
 'use client'
 import MeetingTypeList from '@/components/MeetingTypeList';
 import useGetCalls from '@/hooks/useGetCall';
-import { format } from 'date-fns';
+import { format, toZonedTime  } from 'date-fns-tz';
 
 const Home = () => {
   const now = new Date();
   const { upcomingCalls } = useGetCalls();
-  const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-  const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
+  const timeZone = 'Asia/Kolkata';
+
+  const time = format(now, 'hh:mm a');      
+  const date = format(now, 'PPPP');
+
+  const startsAt = upcomingCalls[0]?.state?.startsAt;
+  const formattedStartsAT =
+    startsAt &&
+    format(
+      toZonedTime(new Date(startsAt), timeZone),
+      'PPP · hh:mm a',
+      { timeZone }
+    );
 
   return (
     <section className="flex size-full flex-col gap-5 text-white">
@@ -16,9 +27,7 @@ const Home = () => {
           <h2 className="glassmorphism max-w-[430px] rounded py-2 text-center text-base font-normal sm:text-wrap">
             Upcoming Meeting at: &nbsp;
             <span className="font-bold text-white">
-              {upcomingCalls[0]?.state?.startsAt
-                ? format(new Date(upcomingCalls[0].state.startsAt), 'PPP · hh:mm a')
-                : '—'}
+              {formattedStartsAT}
             </span>
           </h2>
           <div className="flex flex-col gap-2">

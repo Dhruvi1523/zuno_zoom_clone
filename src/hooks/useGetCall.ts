@@ -51,7 +51,7 @@ export default function useGetCalls() {
         ({ state: { startsAt } }: Call) => {
             return (startsAt && new Date(startsAt) > now)
         }
-    );
+    ).reverse();
 
 
     return { isCallLoading, callRecordings: calls, upcomingCalls, previousCalls }

@@ -26,8 +26,8 @@ function PersonalRoom() {
   const meetingId = user?.id
   const client = useStreamVideoClient();
   const router = useRouter();
-
-  const { call, isCallLoading } = useGetCallById(user?.id!);
+  
+  const { call } = useGetCallById(user?.id ?? '');
 
   const startRoom = async () => {
     if (!user || !client) return;

@@ -7,7 +7,7 @@ import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 
-function Meeting({ params }: { params: Promise<{ id: string }> }) {
+function Meeting() {
   const {id} =   useParams()
 
  if(!id){

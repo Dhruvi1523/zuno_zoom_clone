@@ -6,7 +6,6 @@ import Loader from './Loader';
 import MeetingCard from './MeetingCard';
 import { Call, CallRecording } from '@stream-io/video-react-sdk';
 import { useRouter } from 'next/navigation';
-import { AwardIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
 function CallList({ type }: { type: 'upcoming' | 'previous' | 'recordings' }) {

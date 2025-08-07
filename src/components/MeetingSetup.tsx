@@ -25,7 +25,7 @@ function MeetingSetup({ SetIsSetupComplete }: { SetIsSetupComplete: (value: bool
             call?.camera?.enable();
             call?.microphone?.enable();
         }
-    }, [isMicCamOff, call?.camera, call?.microphone])
+    }, [isMicCamOff, call , call?.camera, call?.microphone])
 
     if (callHasEnded) {
         return <Alert

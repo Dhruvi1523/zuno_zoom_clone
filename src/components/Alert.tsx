@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
-import Countdown from 'react-countdown';
+import Countdown, { CountdownRenderProps } from 'react-countdown';
 
 interface PermissionCardProps {
     title: string;
@@ -13,7 +13,7 @@ interface PermissionCardProps {
 }
 
 const Alert = ({ title, iconUrl, callTimeNotArrived, callStartsAt }: PermissionCardProps) => {
-    const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
+    const renderer = ({ days, hours, minutes, seconds, completed }: CountdownRenderProps) => {
         if (completed) {
              <p className="text-center text-2xl font-semibold text-white">Meeting has been started</p>
             window.location.reload()

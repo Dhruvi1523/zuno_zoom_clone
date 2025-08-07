@@ -1,11 +1,8 @@
 "use client";
 
 import Image from "next/image";
-
-import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { toast } from 'sonner';
-
 interface MeetingCardProps {
   title: string;
   date: string;

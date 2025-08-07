@@ -77,7 +77,7 @@ function MeetingTypeList() {
             <HomeCard
                 className='bg-[#FF742E]'
                 img='/assets/add-meeting.svg'
-                title='Upcoming'
+                title='New Meeting'
                 description='start instant meeting'
                 handleClick={() => { setMeetingState('isInstantMeeting') }}
             ></HomeCard>
